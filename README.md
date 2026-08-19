@@ -4,6 +4,22 @@ A practical digital forensics and threat hunting investigation conducted in a co
 
 The investigation focused on identifying, preserving, acquiring, examining, and correlating digital evidence to understand suspicious activity on a Windows workstation.
 
+## Table of Contents
+
+- [Investigation Overview](#investigation-overview)
+- [Investigation Scope](#investigation-scope)
+- [Forensic Workflow](#forensic-workflow)
+- [Evidence Acquisition](#evidence-acquisition)
+- [Memory Forensics](#memory-forensics)
+- [Disk Forensics](#disk-forensics)
+- [Steganography and Metadata Analysis](#steganography-and-metadata-analysis)
+- [File Recovery](#file-recovery)
+- [Key Findings](#key-findings)
+- [Key Investigative Principle](#key-investigative-principle)
+- [Evidence and Documentation](#evidence-and-documentation)
+- [Chain of Custody](#chain-of-custody)
+- [Repository Structure](#repository-structure)
+
 ## Investigation Overview
 
 This investigation followed a structured forensic workflow rather than isolated tool demonstrations.
