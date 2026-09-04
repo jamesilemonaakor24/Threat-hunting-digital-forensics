@@ -4,20 +4,30 @@ A practical digital forensics and threat hunting investigation conducted in a co
 
 The investigation focused on identifying, preserving, acquiring, examining, and correlating digital evidence to understand suspicious activity on a Windows workstation.
 
+> **📄 Investigation Report & Visual Evidence**
+>
+> The **complete investigation report contains the supporting screenshots, tool outputs, forensic evidence, analysis, and documented findings** from the investigation.
+>
+> **[Download / Open the Complete Investigation Report (PDF)](James_Ilemona_Akor_DFIR_Investigation.pdf)**
+>
+> If GitHub does not display the PDF correctly in the browser or shows an **"Unable to render code block"** message, please **download the PDF and open it locally**. The report itself is intact, and the complete visual evidence is contained within the PDF.
+
 ## Table of Contents
 
 - [Investigation Overview](#investigation-overview)
-- [Investigation Scope](#investigation-scope)
-- [Forensic Workflow](#forensic-workflow)
+- [Investigation Workflow](#investigation-workflow)
+- [Case Information](#case-information)
 - [Evidence Acquisition](#evidence-acquisition)
+- [Forensic Examination](#forensic-examination)
 - [Memory Forensics](#memory-forensics)
-- [Disk Forensics](#disk-forensics)
-- [Steganography and Metadata Analysis](#steganography-and-metadata-analysis)
-- [File Recovery](#file-recovery)
-- [Key Findings](#key-findings)
+- [Steganography & Hidden Content Analysis](#steganography--hidden-content-analysis)
+- [Metadata Analysis](#metadata-analysis)
+- [Evidence Integrity & Chain of Custody](#evidence-integrity--chain-of-custody)
+- [Investigation Documentation](#investigation-documentation)
+- [Investigation Report](#investigation-report)
+- [Tools Used](#tools-used)
+- [Skills Demonstrated](#skills-demonstrated)
 - [Key Investigative Principle](#key-investigative-principle)
-- [Evidence and Documentation](#evidence-and-documentation)
-- [Chain of Custody](#chain-of-custody)
 - [Repository Structure](#repository-structure)
 
 ## Investigation Overview
@@ -36,6 +46,8 @@ The main objectives were to:
 - Examine file metadata
 - Correlate findings from multiple evidence sources
 - Document evidence handling and investigative decisions
+
+The investigation was designed to demonstrate how an analyst can move from individual artefacts to a broader understanding of activity by correlating evidence from different sources.
 
 ## Investigation Workflow
 
@@ -119,11 +131,17 @@ The examination included review of:
 - Extension mismatches
 - Other relevant forensic artefacts
 
+The objective was not simply to identify individual artefacts, but to determine what those artefacts could establish when considered together.
+
 ## Memory Forensics
 
 Memory analysis was performed against the acquired RAM image to identify artefacts that may not be available from disk evidence alone.
 
 The analysis formed part of the wider investigation and was correlated with findings from the disk image and Windows system activity.
+
+Memory analysis included examination of running processes and network-related artefacts, providing additional context for the state of the workstation at the time of acquisition.
+
+The detailed analysis and supporting screenshots are included in the investigation report.
 
 ## Steganography & Hidden Content Analysis
 
@@ -131,11 +149,27 @@ Hidden-content analysis was performed using steganography tools to determine whe
 
 QuickStego and related examination techniques were used as part of this analysis.
 
+The exercise demonstrated the importance of considering whether apparently ordinary files may contain information that is not immediately visible during normal examination.
+
+Supporting evidence is included in the investigation report.
+
 ## Metadata Analysis
 
 File metadata was examined to identify information that could provide additional investigative context, including file properties and timestamps where available.
 
 ExifTool was used to support metadata examination.
+
+The analysis demonstrated how image metadata can expose information such as:
+
+- File characteristics
+- Creation or modification information
+- Camera-related information
+- Author or software information
+- Potential location-related metadata where present
+
+From a security perspective, metadata can become a source of unintended information disclosure when files are published publicly.
+
+The supporting ExifTool command output and screenshots are included in the investigation report.
 
 ## Evidence Integrity & Chain of Custody
 
@@ -162,9 +196,35 @@ Detailed investigative notes, evidence observations, analysis results, and concl
 
 ## Investigation Report
 
-The complete investigation report, including supporting screenshots and documented findings, is available here:
+The complete investigation report is the primary visual evidence package for this repository.
 
-[`James_Ilemona_Akor_DFIR_Investigation.pdf`](James_Ilemona_Akor_DFIR_Investigation.pdf)
+It contains:
+
+- Investigation methodology
+- Evidence acquisition records
+- Hash verification evidence
+- FTK Imager verification screenshots
+- Autopsy examination evidence
+- Memory-forensics evidence
+- Volatility analysis
+- File-system examination
+- File recovery evidence
+- Steganography examination
+- ExifTool metadata analysis
+- Supporting screenshots and command output
+- Investigative findings
+- Evidence correlation
+- Conclusions and recommendations
+
+### 📄 Complete Report
+
+**[Download / Open James Ilemona Akor — DFIR Investigation Report](James_Ilemona_Akor_DFIR_Investigation.pdf)**
+
+> **Note:** GitHub's browser-based PDF viewer may occasionally fail to render this document and display an **"Unable to render code block"** message. This does **not** mean that the investigation report is corrupted.
+>
+> If the report does not open or render in GitHub, **download the PDF and open it locally using a PDF reader such as Microsoft Edge, Adobe Acrobat Reader, or another PDF viewer**.
+>
+> **All supporting visual evidence from the investigation is contained within the PDF.**
 
 ## Tools Used
 
@@ -215,6 +275,8 @@ The investigation did not rely on a single artefact.
 Findings were considered across multiple evidence sources, including Windows event information, memory, disk evidence, file information, metadata, and hidden-content analysis.
 
 This approach helped establish a more complete picture of activity on the investigated Windows workstation.
+
+A key lesson from the investigation is that individual artefacts often provide only partial context. Stronger conclusions can be developed by correlating independent evidence sources and considering whether the available evidence supports or contradicts a particular hypothesis.
 
 ## Repository Structure
 
